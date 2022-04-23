@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-python
+  namespace: mywebapp
+  labels:
+    name: app-python
+    app: mywebapp
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        name: app-python  
+  template:
+    metadata:
+      labels:
+        name: app-python
+    spec:
+      containers:
+      - name: app-python
+        image: haroldo89/front-app:69
+        ports:
+        - containerPort: 80

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-angular
+  namespace: mywebapp
+  labels:
+    name: web
+    app: app-angular
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        name: app-angular
+  template:
+    metadata:
+      labels:
+        name: app-angular
+    spec:
+      containers:
+      - name: web 
+        image: haroldo89/front-app:69
+        ports:
+        - containerPort: 80
